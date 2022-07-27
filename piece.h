@@ -8,6 +8,7 @@
 #define WHITE 87 //W
 #define BALCK_PRINT 2 //RED - BLACK
 #define WHITE_PRINT 7 //WHITE - YELLOW
+#define BACKGROUND 0; // BLACK
 
 
 //TYPE
