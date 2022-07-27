@@ -11,7 +11,6 @@ void initializeChessboard(chessboard);
 void drawChessboard(chessboard);
 void accommodatePieces(chessboard);
 int isBlackOrWhite(int);
-char * colorPrint(int, int, chessboard);
 int whatPieceType(int, int);
 
 
@@ -33,7 +32,7 @@ void drawChessboard(chessboard new_board) {
     }
 }
 
-/*void initializeChessboard(chessboard new_board) {
+void initializeChessboard(chessboard new_board) {
     int i = 0;
     int j = 0;
 
@@ -54,7 +53,7 @@ void drawChessboard(chessboard new_board) {
             }
         }
     }
-}*/
+}
 
 int isBlackOrWhite(int i) {
     if (i == 1 || i == 2) {
@@ -62,25 +61,6 @@ int isBlackOrWhite(int i) {
     }
     if (i == 7 || i == 8){
         return WHITE;
-    }
-}
-
-char * colorPrint(int i, int j, chessboard new_board) {
-    if ((i == 1 || i == 2) && (j > 0 && j < BOARD_LENGTH -1)) {
-        return PIECE_BALCK_PRINT;
-    }
-    else {
-        if ((i == 7 || i == 8) && (j > 0 && j < BOARD_LENGTH -1)) {
-            return PIECE_WHITE_PRINT;
-        }
-        else {
-            if (new_board[i][j].type == BOARD_EDGE) {
-                return BOARD_COLOR_PRINT;
-            } 
-            else {
-                return EMPTY_SQUARE_COLOR_PRINT;
-            }
-        }
     }
 }
 
@@ -132,7 +112,7 @@ void accommodatePieces(chessboard new_board){
 
         for(j = 0; j < BOARD_LENGTH; j++) {
 
-            new_board[i][j] = createPiece(i, j, whatPieceType(i, j), isBlackOrWhite(i), colorPrint(i, j, new_board));
+            new_board[i][j] = createPiece(i, j, whatPieceType(i, j), isBlackOrWhite(i));
         }
     }
 }
