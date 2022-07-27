@@ -6,9 +6,11 @@
 //COLOR
 #define BLACK 66 //B
 #define WHITE 87 //W
-#define BALCK_PRINT 2 //RED - BLACK
-#define WHITE_PRINT 7 //WHITE - YELLOW
-#define BACKGROUND 0; // BLACK
+#define PIECE_BALCK_PRINT "COLOR 80" // BLACK
+#define PIECE_WHITE_PRINT "COLOR 815" // WHITE
+#define BOARD_COLOR_PRINT "COLOR 86"
+#define EMPTY_SQUARE_COLOR_PRINT "COLOR 88"
+#define BACKGROUND "COLOR 8" // GRAY
 
 
 //TYPE
@@ -28,21 +30,21 @@ typedef int position_piece[2];
 
 typedef struct chess_piece{
     char color;
-    char color_print;
+    char * color_print;
     char type;
     position_piece actual_position;
     position_piece previous_position;
     position_piece next_position;
 }piece;
 
-piece createPiece(int, int, char, char, char);
+piece createPiece(int, int, char, char, char*);
 
 
-piece createPiece(int i, int j, char piece_type, char piece_color, char color_print) {
+piece createPiece(int i, int j, char piece_type, char piece_color, char * color_print) {
     piece new_piece;
     new_piece.type = piece_type;
     new_piece.color = piece_color;
-    new_piece.color_print = color_print;
+    * new_piece.color_print = * color_print;
     new_piece.actual_position[0] = i;
     new_piece.actual_position[1] = j;
     new_piece.previous_position[0] = i;
